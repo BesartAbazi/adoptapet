@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import HomePage from './pages/home';
+import SearchPage from './pages/search';
+import PetDetailsPage from './pages/detail';
+import PetDetailsNotFound from './pages/petDetailsNotFound/index';
+import Navigation from './components/navigation';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div>
+            <Router>
+                <Navigation />
+                <Switch>
+                    <Route path='/:type/:id'>
+                        <PetDetailsPage />
+                    </Route>
+                    <Route path='/:type?'>
+                        <HomePage />
+                    </Route>
+                </Switch>
+            </Router>
+        </div>
+    );
 }
 
 export default App;
