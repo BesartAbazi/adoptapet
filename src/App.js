@@ -1,8 +1,8 @@
-import HomePage from './pages/home';
-import SearchPage from './pages/search';
-import PetDetailsPage from './pages/detail';
+import HomePage from './pages/home/index';
+import SearchPage from './pages/search/index';
+import PetDetailsPage from './pages/detail/index';
 import PetDetailsNotFound from './pages/petDetailsNotFound/index';
-import Navigation from './components/navigation';
+import Navigation from './components/navigation/index';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -11,6 +11,9 @@ function App() {
             <Router>
                 <Navigation />
                 <Switch>
+                    <Route path='/search/'>
+                        <SearchPage />
+                    </Route>
                     <Route path='/:type/:id'>
                         <PetDetailsPage />
                     </Route>
