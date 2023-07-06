@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { useParams, Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { getPetDetails } from '../../api/petfinder';
 import Hero from '../../components/hero';
 
@@ -30,7 +30,7 @@ const PetDetailsPage = () => {
         <h3>Loading...</h3>
       ) : error ? (
         <div>
-          {/* Redirect to /pet-details-not-found if there was an error! */}
+          <Redirect to='/pet-details-not-found'/>
         </div>
       ) : (
         <main>
