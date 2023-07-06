@@ -21,6 +21,7 @@ const SearchPage = () => {
         async function getPetsData() {
             const petNameToFind = queryParams.get('name');
             const petsData = await getPets('', petNameToFind);
+            setPets(petsData);
         }
 
         getPetsData();
